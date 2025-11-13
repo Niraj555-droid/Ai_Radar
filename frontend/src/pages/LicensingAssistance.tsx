@@ -216,54 +216,54 @@ const LicensingAssistance = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <Card className="bg-gradient-to-br from-blue-900/30 to-black border-blue-700">
+          <Card className="bg-gradient-to-br from-blue-900/50 to-black border-blue-600 border-2">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-gray-400">Total Licenses</p>
-                <FileText className="h-5 w-5 text-blue-400" />
+                <p className="text-sm font-semibold text-blue-300">Total Licenses</p>
+                <FileText className="h-6 w-6 text-blue-400" />
               </div>
-              <p className="text-2xl font-bold text-white">{licenses.length}</p>
+              <p className="text-3xl font-bold text-white">{licenses.length}</p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-green-900/30 to-black border-green-700">
+          <Card className="bg-gradient-to-br from-green-900/50 to-black border-green-600 border-2">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-gray-400">Completed</p>
-                <CheckCircle className="h-5 w-5 text-green-400" />
+                <p className="text-sm font-semibold text-green-300">Completed</p>
+                <CheckCircle className="h-6 w-6 text-green-400" />
               </div>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-3xl font-bold text-white">
                 {licenses.filter(l => l.status === 'completed').length}
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-yellow-900/30 to-black border-yellow-700">
+          <Card className="bg-gradient-to-br from-yellow-900/50 to-black border-yellow-600 border-2">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-gray-400">In Progress</p>
-                <Clock className="h-5 w-5 text-yellow-400" />
+                <p className="text-sm font-semibold text-yellow-300">In Progress</p>
+                <Clock className="h-6 w-6 text-yellow-400" />
               </div>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-3xl font-bold text-white">
                 {licenses.filter(l => l.status === 'in-progress').length}
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-900/30 to-black border-purple-700">
+          <Card className="bg-gradient-to-br from-purple-900/50 to-black border-purple-600 border-2">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-gray-400">Available Schemes</p>
-                <Building2 className="h-5 w-5 text-purple-400" />
+                <p className="text-sm font-semibold text-purple-300">Available Schemes</p>
+                <Building2 className="h-6 w-6 text-purple-400" />
               </div>
-              <p className="text-2xl font-bold text-white">{schemes.length}</p>
+              <p className="text-3xl font-bold text-white">{schemes.length}</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as 'licenses' | 'schemes' | 'checklist')} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 bg-gray-900 border-blue-700">
+          <TabsList className="grid w-full grid-cols-3 bg-gray-900 border-blue-600 border-2">
             <TabsTrigger value="licenses" className="data-[state=active]:bg-blue-600">📋 Licenses</TabsTrigger>
             <TabsTrigger value="schemes" className="data-[state=active]:bg-blue-600">🏛️ Government Schemes</TabsTrigger>
             <TabsTrigger value="checklist" className="data-[state=active]:bg-blue-600">✅ Document Checklist</TabsTrigger>
@@ -272,12 +272,12 @@ const LicensingAssistance = () => {
           {/* Licenses Tab */}
           <TabsContent value="licenses" className="space-y-4">
             {licenses.map((license) => (
-              <Card key={license.id} className="bg-gradient-to-br from-gray-900 to-black border-blue-700">
+              <Card key={license.id} className="bg-gradient-to-br from-gray-900 to-black border-blue-600 border-2">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
-                      <CardTitle className="text-white">{license.name}</CardTitle>
-                      <CardDescription className="text-gray-400">
+                      <CardTitle className="text-white text-xl">{license.name}</CardTitle>
+                      <CardDescription className="text-blue-300">
                         {license.estimatedTime} • {license.cost}
                       </CardDescription>
                     </div>
@@ -286,10 +286,10 @@ const LicensingAssistance = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-blue-400 mb-2">Required Documents:</h4>
+                    <h4 className="text-sm font-bold text-blue-300 mb-2">Required Documents:</h4>
                     <div className="flex flex-wrap gap-2">
                       {license.documents.map((doc, index) => (
-                        <Badge key={index} variant="outline" className="border-blue-600 text-blue-400">
+                        <Badge key={index} variant="outline" className="border-blue-500 text-blue-300 bg-blue-900/20">
                           {doc}
                         </Badge>
                       ))}
@@ -297,8 +297,8 @@ const LicensingAssistance = () => {
                   </div>
 
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-blue-400 mb-2">Step-by-Step Process:</h4>
-                    <ol className="list-decimal list-inside space-y-1 text-sm text-gray-300">
+                    <h4 className="text-sm font-bold text-blue-300 mb-2">Step-by-Step Process:</h4>
+                    <ol className="list-decimal list-inside space-y-1 text-sm text-white">
                       {license.steps.map((step, index) => (
                         <li key={index}>{step}</li>
                       ))}
@@ -332,30 +332,30 @@ const LicensingAssistance = () => {
           {/* Schemes Tab */}
           <TabsContent value="schemes" className="space-y-4">
             {schemes.map((scheme, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-blue-700">
+              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-blue-600 border-2">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-white">{scheme.name}</CardTitle>
-                    <Badge className="bg-green-600">Active</Badge>
+                    <CardTitle className="text-white text-xl">{scheme.name}</CardTitle>
+                    <Badge className="bg-green-600 text-white">Active</Badge>
                   </div>
-                  <CardDescription className="text-gray-400">{scheme.description}</CardDescription>
+                  <CardDescription className="text-blue-300">{scheme.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
                     <div>
-                      <p className="text-sm text-gray-400">Loan Amount</p>
-                      <p className="text-xl font-bold text-green-400">{scheme.amount}</p>
+                      <p className="text-sm font-semibold text-blue-300">Loan Amount</p>
+                      <p className="text-2xl font-bold text-green-400">{scheme.amount}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-400">Eligibility</p>
-                      <p className="text-white">{scheme.eligibility}</p>
+                      <p className="text-sm font-semibold text-blue-300">Eligibility</p>
+                      <p className="text-white text-base">{scheme.eligibility}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-400 mb-2">Benefits</p>
-                      <ul className="space-y-1">
+                      <p className="text-sm font-semibold text-blue-300 mb-2">Benefits</p>
+                      <ul className="space-y-2">
                         {scheme.benefits.map((benefit, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                            <CheckCircle className="h-4 w-4 text-green-400" />
+                          <li key={i} className="flex items-center gap-2 text-sm text-white">
+                            <CheckCircle className="h-5 w-5 text-green-400" />
                             {benefit}
                           </li>
                         ))}
@@ -372,34 +372,35 @@ const LicensingAssistance = () => {
 
           {/* Checklist Tab */}
           <TabsContent value="checklist" className="space-y-4">
-            <Card className="bg-gradient-to-br from-gray-900 to-black border-blue-700">
+            <Card className="bg-gradient-to-br from-gray-900 to-black border-blue-600 border-2">
               <CardHeader>
-                <CardTitle className="text-white">Essential Documents Checklist</CardTitle>
-                <CardDescription className="text-gray-400">Keep these documents ready for all applications</CardDescription>
+                <CardTitle className="text-white text-xl">Essential Documents Checklist</CardTitle>
+                <CardDescription className="text-blue-300">Keep these documents ready for all applications</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {[
-                    { name: 'Aadhaar Card', required: true, description: 'Identity proof' },
-                    { name: 'PAN Card', required: true, description: 'Tax identification' },
-                    { name: 'Address Proof', required: true, description: 'Utility bill, rent agreement' },
-                    { name: 'Bank Account Details', required: true, description: 'Cancelled cheque or bank statement' },
-                    { name: 'Business Address Proof', required: false, description: 'If different from residential' },
-                    { name: 'Vendor Certificate', required: false, description: 'From local authority' },
-                    { name: 'Photo (Passport Size)', required: true, description: 'Recent photograph' }
+                    { name: 'Aadhaar Card', required: true, description: 'Identity proof', icon: '🆔' },
+                    { name: 'PAN Card', required: true, description: 'Tax identification', icon: '📄' },
+                    { name: 'Address Proof', required: true, description: 'Utility bill, rent agreement', icon: '📍' },
+                    { name: 'Bank Account Details', required: true, description: 'Cancelled cheque or bank statement', icon: '🏦' },
+                    { name: 'Business Address Proof', required: false, description: 'If different from residential', icon: '🏢' },
+                    { name: 'Vendor Certificate', required: false, description: 'From local authority', icon: '📜' },
+                    { name: 'Photo (Passport Size)', required: true, description: 'Recent photograph', icon: '📷' }
                   ].map((doc, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                    <div key={index} className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-blue-600 transition-colors">
                       <div className="flex items-center gap-3">
+                        <div className="text-2xl">{doc.icon}</div>
                         <FileCheck className={`h-5 w-5 ${doc.required ? 'text-blue-400' : 'text-gray-500'}`} />
                         <div>
-                          <p className="font-semibold text-white">
+                          <p className="font-bold text-white text-base">
                             {doc.name}
                             {doc.required && <Badge className="ml-2 bg-red-600 text-xs">Required</Badge>}
                           </p>
-                          <p className="text-sm text-gray-400">{doc.description}</p>
+                          <p className="text-sm text-blue-300">{doc.description}</p>
                         </div>
                       </div>
-                      <Button variant="outline" size="sm" className="border-blue-600 text-blue-400">
+                      <Button variant="outline" size="sm" className="border-blue-600 text-blue-400 hover:bg-blue-900/30">
                         Upload
                       </Button>
                     </div>
@@ -413,7 +414,7 @@ const LicensingAssistance = () => {
 
       {/* Form Dialog */}
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="bg-gray-900 text-white border-blue-700 max-w-2xl">
+        <DialogContent className="bg-gray-900 text-white border-blue-600 border-2 max-w-2xl">
           <DialogHeader>
             <DialogTitle>Start Application: {selectedLicense?.name}</DialogTitle>
           </DialogHeader>
