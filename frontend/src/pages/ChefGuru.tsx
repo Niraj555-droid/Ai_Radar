@@ -55,7 +55,7 @@ const ChefGuru = () => {
   const [trendsError, setTrendsError] = useState<string | null>(null);
 
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
   // Fetch trend data when Trends tab is active
   useEffect(() => {
     if (activeTab === 'trends') {
@@ -187,7 +187,7 @@ const ChefGuru = () => {
   const fetchPrediction = async () => {
     try {
       const { dishName, date, optionType, language } = chatFlowData;
-      const response = await fetch('http://127.0.0.1:8000/api/suggest', {
+      const response = await fetch('http://127.0.0.1:5000/api/suggest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
